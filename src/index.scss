@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+	.card {
+		@apply w-52 px-7 pb-8 border-[1px] border-[#efefef] rounded-[40px];
+	}
+
+	.card-sneakers-name {
+		@apply mt-3 text-sm leading-4;
+	}
+
+	.card-bottom {
+		@apply mt-3 flex justify-between items-center;
+	}
+
+	.card-price {
+		@apply text-[11px] text-priceGrey uppercase;
+	}
+
+	.card-add-btn {
+		@apply relative w-8 h-8 border-2 rounded-lg flex justify-center items-center transition-all hover:bg-lightGreen hover:border-lightGreen before:absolute before:w-3 before:h-0.5 before:bg-grey before:rounded-full after:absolute after:w-3 after:h-0.5 after:bg-grey after:rounded-full after:rotate-90;
+	}
+}
+
+@layer components {
+	body {
+		margin: 0;
+		font-family: 'Inter', system-ui;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		background-color: #e7f6ff;
+	}
+
+	.card {
+		img {
+			margin: auto;
+		}
+	}
+}
