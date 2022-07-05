@@ -4,4 +4,4 @@
 
 ## Availabel via link below
 
-[Sneakers Shop] (https://kdvornichenko.github.io/Sneakers-Shop/)
+[Sneakers Shop](https://kdvornichenko.github.io/Sneakers-Shop/)
