@@ -4,7 +4,11 @@
 
 @layer utilities {
 	.card {
-		@apply w-52 px-7 pb-8 border-[1px] border-[#efefef] rounded-[40px];
+		@apply w-52 px-7 pb-8 border-[1px] border-[#efefef] rounded-[40px] transition-all hover:border-[#e1e1e1] hover:shadow-card hover:scale-[1.1];
+	}
+
+	.card-heart {
+		@apply absolute top-3 -left-2 p-2 rounded-lg transition-all hover:bg-lightRed;
 	}
 
 	.card-sneakers-name {
@@ -25,15 +29,35 @@
 }
 
 @layer components {
+	* {
+		font-family: 'Inter', system-ui;
+	}
+
 	body {
 		margin: 0;
-		font-family: 'Inter', system-ui;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		background-color: #e7f6ff;
 	}
 
 	.card {
+		&:hover {
+			.card-heart {
+				display: block;
+			}
+		}
+		.card-heart {
+			display: none;
+		}
+		.card-heart:hover {
+			svg.heart-svg {
+				fill: #ff8585;
+				path {
+					transition-duration: 0.15s;
+					stroke: #ff8585;
+				}
+			}
+		}
 		img {
 			margin: auto;
 		}
