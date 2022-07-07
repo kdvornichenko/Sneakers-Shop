@@ -1,10 +1,12 @@
-function Card() {
+import styles from './Card.module.scss'
+
+function Card(props) {
 	return (
-		<div className='card'>
+		<div className={styles.card}>
 			<div className='relative'>
-				<button className='card-heart'>
+				<button className={styles.cardHeart} onClick={props.onClickFavorite}>
 					<svg
-						className='heart-svg transition-all'
+						className={styles.heartSvg}
 						width='17'
 						height='16'
 						viewBox='0 0 17 16'
@@ -17,20 +19,18 @@ function Card() {
 						/>
 					</svg>
 				</button>
-				<img
-					src='/img/sneakers/Nike-Blazer-Mid-Suede-Green.png'
-					alt='Nike Blazer Mid Suede Green'
-				/>
+				<img src={props.imageURL} alt='Nike Blazer Mid Suede Green' />
 			</div>
-			<h5 className='card-sneakers-name'>
-				Мужские Кроссовки Nike Blazer Mid Suede
-			</h5>
-			<div className='card-bottom'>
+			<h5 className={styles.cardSneakersName}>{props.title}</h5>
+			<div className={styles.cardBottom}>
 				<div>
-					<p className='card-price'>Цена:</p>
-					<strong>12 999 руб.</strong>
+					<p className={styles.cardPrice}>Цена:</p>
+					<strong>{props.price} руб.</strong>
 				</div>
-				<button className='card-add-btn'></button>
+				<button
+					className={styles.cardAddBtn}
+					onClick={props.onClickPlus}
+				></button>
 			</div>
 		</div>
 	)
