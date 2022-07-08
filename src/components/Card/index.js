@@ -1,12 +1,19 @@
+import React from 'react'
 import styles from './Card.module.scss'
 
 function Card(props) {
+	const [isAdded, setIsAdded] = React.useState(false)
+
+	const handleClick = () => {
+		setIsAdded(!isAdded)
+	}
+
 	return (
-		<div className={styles.card}>
+		<div className='card'>
 			<div className='relative'>
-				<button className={styles.cardHeart} onClick={props.onClickFavorite}>
+				<button className='cardHeart' onClick={props.onClickFavorite}>
 					<svg
-						className={styles.heartSvg}
+						className='heartSvg'
 						width='17'
 						height='16'
 						viewBox='0 0 17 16'
@@ -21,15 +28,15 @@ function Card(props) {
 				</button>
 				<img src={props.imageURL} alt='Nike Blazer Mid Suede Green' />
 			</div>
-			<h5 className={styles.cardSneakersName}>{props.title}</h5>
-			<div className={styles.cardBottom}>
+			<h5 className='cardSneakersName'>{props.title}</h5>
+			<div className='cardBottom'>
 				<div>
-					<p className={styles.cardPrice}>Цена:</p>
+					<p className='cardPrice'>Цена:</p>
 					<strong>{props.price} руб.</strong>
 				</div>
 				<button
-					className={styles.cardAddBtn}
-					onClick={props.onClickPlus}
+					className={isAdded ? styles.cardAddedBtn : styles.cardAddBtn}
+					onClick={handleClick}
 				></button>
 			</div>
 		</div>

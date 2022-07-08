@@ -1,29 +1,16 @@
+import React from 'react'
 import Card from './Card'
 
-const arr = [
-	{
-		title: 'Мужские Кроссовки Nike Blazer Mid Suede',
-		price: 12 + ' ' + 990,
-		imageURL: '/img/sneakers/Nike-Blazer-Mid-Suede-Green.png',
-	},
-	{
-		title: 'Мужские Кроссовки Nike Air Max 270',
-		price: 12 + ' ' + 999,
-		imageURL: '/img/sneakers/Nike-Air-Max-270.png',
-	},
-	{
-		title: 'Мужские Кроссовки Nike Blazer Mid Suede',
-		price: 8 + ' ' + 499,
-		imageURL: '/img/sneakers/Nike-Blazer-Mid-Suede-White.png',
-	},
-	{
-		title: 'Кроссовки Puma X Aka Boku Future Rider',
-		price: 8 + ' ' + 999,
-		imageURL: '/img/sneakers/Puma-X-Aka-Boku-Future-Rider.png',
-	},
-]
-
 function Products() {
+	const [items, setItems] = React.useState([])
+	React.useEffect(() => {
+		fetch('https://62c7fe728c90491c2cabe824.mockapi.io/Items')
+			.then(res => {
+				return res.json()
+			})
+			.then(json => setItems(json))
+	},[])
+
 	return (
 		<div className='px-14 py-11'>
 			<div className='mb-10 flex justify-between items-center'>
@@ -52,17 +39,13 @@ function Products() {
 			</div>
 
 			<div className='flex flex-wrap gap-10'>
-				{arr.map(obj => (
+				{items.map(obj => (
 					<Card
 						title={obj.title}
 						price={obj.price}
 						imageURL={obj.imageURL}
-						onClickFavorite={() => {
-							console.log(obj)
-						}}
-						onClickPlus={() => {
-							console.log(obj)
-						}}
+						onClickFavorite={() => {}}
+						onClickPlus={() => {}}
 					/>
 				))}
 			</div>

@@ -1,13 +1,10 @@
-function Cart() {
+function Cart(props) {
 	return (
-		<div
-			style={{ display: 'none' }}
-			className='absolute w-full h-full left-0 top-0 bg-black bg-opacity-50 z-10'
-		>
+		<div className='absolute w-full h-full left-0 top-0 bg-black bg-opacity-50 z-10'>
 			<div className='absolute flex flex-col w-96 h-full p-8 right-0 bg-white shadow-cart'>
 				<div className='mb-4 flex justify-between'>
 					<h2 className='text-2xl font-bold'>Корзина</h2>
-					<button className='cart-close-btn'>
+					<button className='cart-close-btn' onClick={props.onClose}>
 						<svg
 							width='16'
 							height='14'
@@ -41,14 +38,14 @@ function Cart() {
 							className='max-w-[70px]'
 						/>
 						<div className='max-w-[150px]'>
-							<h5 className='card-sneakers-name'>
+							<h5 className='cardSneakersName'>
 								Мужские Кроссовки Nike Blazer Mid Suede
 							</h5>
 							<div className='mt-1'>
 								<strong>12 999 руб.</strong>
 							</div>
 						</div>
-						<button className='card-delete-btn'></button>
+						<button className='cardDeleteBtn'></button>
 					</div>
 				</div>
 
