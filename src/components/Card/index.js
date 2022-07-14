@@ -1,19 +1,31 @@
 import React from 'react'
 import styles from './Card.module.scss'
 
-function Card(props) {
+function Card({ title, imageURL, price, onFavorite, onPlus }) {
 	const [isAdded, setIsAdded] = React.useState(false)
+	const [isFavorite, setIsFavorite] = React.useState(false)
 
-	const handleClick = () => {
+	const onClickPlus = () => {
+		onPlus({ isFavorite, title, imageURL, price, isAdded })
 		setIsAdded(!isAdded)
 	}
 
+	const onClickFavorite = () => {
+		onFavorite({ isFavorite, title, imageURL, price, isAdded })
+		setIsFavorite(!isFavorite)
+	}
+
 	return (
-		<div className='card'>
+		<div className={styles.card}>
 			<div className='relative'>
-				<button className='cardHeart' onClick={props.onClickFavorite}>
+				<button
+					className={
+						isFavorite ? styles.cardFavoriteClicked : styles.cardFavorite
+					}
+					onClick={onClickFavorite}
+				>
 					<svg
-						className='heartSvg'
+						className={styles.heartSvg}
 						width='17'
 						height='16'
 						viewBox='0 0 17 16'
@@ -26,17 +38,17 @@ function Card(props) {
 						/>
 					</svg>
 				</button>
-				<img src={props.imageURL} alt='Nike Blazer Mid Suede Green' />
+				<img src={imageURL} alt='Nike Blazer Mid Suede Green' />
 			</div>
-			<h5 className='cardSneakersName'>{props.title}</h5>
-			<div className='cardBottom'>
+			<h5 className={styles.cardSneakersName}>{title}</h5>
+			<div className={styles.cardBottom}>
 				<div>
-					<p className='cardPrice'>Цена:</p>
-					<strong>{props.price} руб.</strong>
+					<p className={styles.cardPrice}>Цена:</p>
+					<strong>{price} руб.</strong>
 				</div>
 				<button
 					className={isAdded ? styles.cardAddedBtn : styles.cardAddBtn}
-					onClick={handleClick}
+					onClick={onClickPlus}
 				></button>
 			</div>
 		</div>

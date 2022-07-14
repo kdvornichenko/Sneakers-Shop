@@ -3,40 +3,36 @@
 @tailwind utilities;
 
 @layer utilities {
-	.card {
-		@apply w-52 px-7 pb-8 border-[1px] border-[#efefef] rounded-[40px] transition-all hover:border-[#e1e1e1] hover:shadow-card;
+	.wrapper {
+		@apply max-w-[1080px] my-[50px] mx-auto bg-white shadow-wrapper rounded-[20px];
 	}
 
-	.cardHeart {
-		@apply absolute top-3 -left-2 p-2 rounded-lg transition-all hover:bg-redLight;
+	.searchBlock {
+		@apply flex items-center gap-3 pl-3 border border-[#F3F3F3] rounded-xl relative;
 	}
 
-	.cardSneakersName {
-		@apply mt-3 text-sm leading-4;
+	.searchInput {
+		@apply w-52 text-base outline-grey py-2 outline-0;
 	}
 
-	.cardBottom {
-		@apply mt-3 flex justify-between items-center;
+	.searchCross {
+		@apply absolute right-2 w-4 h-4 cursor-pointer transition-all hover:scale-105 hover:before:bg-greyDark hover:after:bg-greyDark before:absolute before:top-1/2 before:w-4 before:h-0.5 before:bg-grey before:rounded-full before:rotate-45 before:transition-all after:absolute after:top-1/2 after:w-4 after:h-0.5 after:bg-grey after:rounded-full after:-rotate-45 after:transition-all;
 	}
 
 	.cardPrice {
 		@apply text-[11px] text-priceGrey uppercase;
 	}
 
-	.cardAddBtn {
-		@apply relative w-8 h-8 border-2 rounded-lg flex justify-center items-center transition-all hover:bg-greenLight hover:border-greenLight before:absolute before:w-3 before:h-0.5 before:bg-grey before:rounded-full before:transition-all after:absolute after:w-3 after:h-0.5 after:bg-grey after:rounded-full after:rotate-90 after:transition-all;
-	}
-
-	.cardAddedBtn {
-		@apply relative w-8 h-8 bg-green border-2 border-green rounded-lg flex justify-center items-center transition-all hover:bg-red hover:border-red before:absolute before:w-3 before:h-0.5 before:bg-white before:rounded-full before:-rotate-45 before:translate-x-0.5 hover:before:translate-x-0 before:transition-all after:absolute after:w-2 hover:after:w-3 after:h-0.5 after:bg-white after:rounded-full after:rotate-45 after:-translate-x-1 hover:after:translate-x-0 after:translate-y-0.5 hover:after:translate-y-0 after:transition-all;
-	}
-
 	.cardDeleteBtn {
 		@apply relative w-8 h-8 border-2 rounded-lg flex justify-center items-center transition-all hover:bg-red hover:border-red hover:before:bg-white hover:after:bg-white before:absolute before:w-3 before:h-0.5 before:bg-grey before:rounded-full before:rotate-45 after:absolute after:w-3 after:h-0.5 after:bg-grey after:rounded-full after:-rotate-45;
 	}
 
-	.btn-green {
+	.btnGreenOrder {
 		@apply relative mt-5 h-[55px] w-full flex justify-center items-center text-white font-medium bg-green rounded-2xl transition-all active:bg-greenDarkBtn hover:bg-greenLightBtn hover:scale-[1.01];
+	}
+
+	.btnGreenBack {
+		@apply relative mt-10 h-[55px] w-full flex justify-center items-center text-white font-medium bg-green rounded-2xl transition-all active:bg-greenDarkBtn hover:bg-greenLightBtn hover:scale-[1.01];
 	}
 }
 
@@ -50,32 +46,6 @@
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		background-color: #e7f6ff;
-	}
-
-	.card {
-		&:hover {
-			.cardHeart {
-				display: block;
-			}
-		}
-		.cardHeart {
-			display: none;
-			svg.heartSvg {
-				transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-				fill: #fff;
-			}
-		}
-		.cardHeart:hover {
-			svg.heartSvg {
-				fill: #ff8585;
-				path {
-					stroke: #ff8585;
-				}
-			}
-		}
-		img {
-			margin: auto;
-		}
 	}
 
 	.cart-close-btn {

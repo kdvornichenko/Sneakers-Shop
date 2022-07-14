@@ -3,6 +3,29 @@
 @tailwind utilities;
 
 @layer utilities {
+	.card {
+		@apply w-52 px-7 pb-8 border-[1px] border-[#efefef] rounded-[40px] transition-all hover:border-[#e1e1e1] hover:shadow-card;
+	}
+	.cardFavorite {
+		@apply absolute top-3 -left-2 p-2 rounded-lg transition-all hover:bg-redLight;
+	}
+
+	.cardFavoriteClicked {
+		@apply absolute top-3 -left-2 p-2 rounded-lg transition-all;
+	}
+
+	.cardSneakersName {
+		@apply mt-3 text-sm leading-4;
+	}
+
+	.cardPrice {
+		@apply text-[11px] text-priceGrey uppercase;
+	}
+
+	.cardBottom {
+		@apply mt-3 flex justify-between items-center;
+	}
+
 	.cardAddBtn {
 		@apply relative w-8 h-8 border-2 rounded-lg flex justify-center items-center transition-all hover:bg-greenLight hover:border-greenLight before:absolute before:w-3 before:h-0.5 before:bg-grey before:rounded-full before:transition-all after:absolute after:w-3 after:h-0.5 after:bg-grey after:rounded-full after:rotate-90 after:transition-all;
 	}
@@ -12,6 +35,43 @@
 	}
 
 	.cardDeleteBtn {
-		@apply relative w-8 h-8 border-2 rounded-lg flex justify-center items-center transition-all hover:bg-red hover:border-red hover:before:bg-white hover:after:bg-white before:absolute before:w-3 before:h-0.5 before:bg-grey before:rounded-full before:rotate-45  before:transition-all after:absolute after:w-3 after:h-0.5 after:bg-grey after:rounded-full after:-rotate-45 after:transition-all;
+		@apply relative w-8 h-8 border-2 rounded-lg flex justify-center items-center transition-all hover:bg-red hover:border-red hover:before:bg-white hover:after:bg-white before:absolute before:w-3 before:h-0.5 before:bg-grey before:rounded-full before:rotate-45 after:absolute after:w-3 after:h-0.5 after:bg-grey after:rounded-full after:-rotate-45;
+	}
+}
+
+@layer components {
+	.card {
+		&:hover {
+			.cardFavorite {
+				display: block;
+			}
+		}
+		.cardFavorite {
+			display: none;
+			svg.heartSvg {
+				transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+				fill: #fff;
+			}
+		}
+
+		.cardFavoriteClicked {
+			svg.heartSvg {
+				fill: #ff8585;
+				path {
+					stroke: #ff8585;
+				}
+			}
+		}
+		.cardFavorite:hover {
+			svg.heartSvg {
+				fill: #ff8585;
+				path {
+					stroke: #ff8585;
+				}
+			}
+		}
+		img {
+			margin: auto;
+		}
 	}
 }
