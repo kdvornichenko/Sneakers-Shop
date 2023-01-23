@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route, Routes } from 'react-router-dom'
 import axios from 'axios'
 import Card from './components/Card'
 import Cart from './components/Cart'
@@ -64,7 +65,9 @@ function App() {
 					onClose={() => setCartOpened(false)}
 				/>
 			)}
+
 			<Header onClickCart={() => setCartOpened(true)} />
+
 			<div className='px-14 py-11'>
 				<div className='mb-10 flex justify-between items-center'>
 					<h1 className='text-4xl font-bold'>
@@ -116,7 +119,7 @@ function App() {
 								imageURL={item.imageURL}
 								favorite={item.isFavorite}
 								onFavorite={obj => onAddToFavorite(obj)}
-								add={item.isAdded}
+								add={!item.isAdded}
 								onPlus={obj => onAddToCart(obj)}
 							/>
 						))}
