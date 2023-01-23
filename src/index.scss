@@ -4,11 +4,11 @@
 
 @layer utilities {
 	.wrapper {
-		@apply max-w-[1080px] my-[50px] mx-auto bg-white shadow-wrapper rounded-[20px];
+		@apply max-w-6xl my-12 mx-auto bg-white shadow-wrapper rounded-2xl;
 	}
 
 	.searchBlock {
-		@apply flex items-center gap-3 pl-3 border border-[#F3F3F3] rounded-xl relative;
+		@apply flex items-center gap-3 pl-3 border border-greyLight rounded-xl relative;
 	}
 
 	.searchInput {
@@ -28,11 +28,11 @@
 	}
 
 	.btnGreenOrder {
-		@apply relative mt-5 h-[55px] w-full flex justify-center items-center text-white font-medium bg-green rounded-2xl transition-all active:bg-greenDarkBtn hover:bg-greenLightBtn hover:scale-[1.01];
+		@apply relative mt-5 h-14 w-full flex justify-center items-center text-white font-medium bg-green rounded-2xl transition-all active:bg-greenDarkBtn hover:bg-greenLightBtn hover:scale-105;
 	}
 
 	.btnGreenBack {
-		@apply relative mt-10 h-[55px] w-full flex justify-center items-center text-white font-medium bg-green rounded-2xl transition-all active:bg-greenDarkBtn hover:bg-greenLightBtn hover:scale-[1.01];
+		@apply relative mt-10 h-14 w-full flex justify-center items-center text-white font-medium bg-green rounded-2xl transition-all active:bg-greenDarkBtn hover:bg-greenLightBtn hover:scale-105;
 	}
 }
 

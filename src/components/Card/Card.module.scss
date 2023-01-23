@@ -4,7 +4,7 @@
 
 @layer utilities {
 	.card {
-		@apply w-52 px-7 pb-8 border-[1px] border-[#efefef] rounded-[40px] transition-all hover:border-[#e1e1e1] hover:shadow-card;
+		@apply w-52 px-7 pb-8 border border-greyLight rounded-3xl transition-all hover:border-grey hover:shadow-card;
 	}
 	.cardFavorite {
 		@apply absolute top-3 -left-2 p-2 rounded-lg transition-all hover:bg-redLight;
@@ -19,7 +19,7 @@
 	}
 
 	.cardPrice {
-		@apply text-[11px] text-priceGrey uppercase;
+		@apply text-xs text-priceGrey uppercase;
 	}
 
 	.cardBottom {

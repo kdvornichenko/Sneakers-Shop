@@ -1,5 +1,4 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
 import axios from 'axios'
 import Card from './components/Card'
 import Cart from './components/Cart'
